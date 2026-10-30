@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEROSHIELD // Malware & PE Anomaly Inspector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">⚡</div>
+        <span class="brand-title">AEROSHIELD<span style="color: var(--accent-pink);">.IO</span></span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <span class="tag-label">STATIC PE DEFENSE ENGINE v2.4</span>
+      <h1 class="hero-title">
+        WINDOWS BINARY <span class="highlight">MALWARE</span> DIAGNOSTICS
+      </h1>
+      <p class="hero-desc">
+        Deep static inspection of Portable Executable (PE) headers using Random Forest feature classification paired with an 8-dimensional Variational Autoencoder (VAE) trained exclusively on clean software to expose zero-day anomalies.
+      </p>
+    </section>
+
+    <!-- Project Metrics Ribbon -->
+    <section class="stats-ribbon">
+      <div class="stat-item">
+        <div class="stat-val">99.11%</div>
+        <div class="stat-label">Model Test Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">99.83%</div>
+        <div class="stat-label">Malware Detection Recall</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">8-DIM</div>
+        <div class="stat-label">VAE Latent Bottleneck</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">23</div>
+        <div class="stat-label">Selected PE Header Features</div>
+      </div>
+    </section>
+
+    <!-- Upload Dropzone -->
+    <section class="dropzone-card" id="dropzone">
+      <div class="dropzone-icon">📁</div>
+      <h2 class="dropzone-title">DRAG & DROP BINARY HERE</h2>
+      <p class="dropzone-subtitle">or click anywhere inside the box to select a file from your machine</p>
+      
+      <div class="badge-formats">
+        <span class="badge-tag highlight">.EXE ONLY</span>
+        <span class="badge-tag highlight">.DLL ONLY</span>
+      </div>
+
+      <div>
+        <button type="button" class="btn-upload">CHOOSE FILE</button>
+      </div>
+
+      <input type="file" id="file-input" accept=".exe,.dll">
+    </section>
+
+    <!-- Alert Box for Validation -->
+    <div class="alert-box" id="alert-box">
+      <span class="alert-icon">⚠️</span>
+      <span class="alert-text" id="alert-text">Only .exe and .dll files are accepted.</span>
+    </div>
+
+    <!-- Loading State Animation -->
+    <div class="loading-card" id="loading-card">
+      <div class="spinner-cube"></div>
+      <h3 class="loading-text">DISSECTING PE HEADERS...</h3>
+      <p class="loading-subtext">Parsing optional headers, computing section entropy, and passing latent vectors through VAE decoder</p>
+    </div>
+
+    <!-- Diagnostic Results Display -->
+    <section class="result-card" id="result-card">
+      <div class="result-header" id="res-header">
+        <div class="result-verdict-wrap">
+          <div class="verdict-badge-box" id="res-icon">✓</div>
+          <div>
+            <div class="verdict-text" id="res-verdict">SAFE</div>
+            <div class="verdict-target" id="res-filename">sample.exe</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);" id="res-type">Windows Executable</div>
+          </div>
+        </div>
+        <div>
+          <button class="action-btn-restart" id="btn-restart">↻ SCAN ANOTHER FILE</button>
+        </div>
+      </div>
+
+      <!-- Deep Inspection Details -->
+      <div class="details-body">
+        <!-- Extracted Key Features Table -->
+        <h4 class="details-heading">TOP EXTRACTED PE HEADER ATTRIBUTES</h4>
+        <div class="features-table-wrap" style="margin-bottom: 0;">
+          <table class="features-table">
+            <thead>
+              <tr>
+                <th>Feature Name</th>
+                <th>Sample Extracted Value</th>
+                <th>Diagnostic Significance</th>
+              </tr>
+            </thead>
+            <tbody id="features-tbody"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>AEROSHIELD</p>
+  </footer>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
