@@ -1,4 +1,4 @@
-# ⚡ AeroShield.io — Windows PE Malware Detection Engine
+# ⚡ AeroShield - Windows PE Malware Detection Engine
 
 AeroShield is an end-to-end Windows Portable Executable (PE) malware diagnostic system. It leverages deep static inspection, combining an **8-dimensional Variational Autoencoder (VAE)** with a **Random Forest Classifier** to analyze `.exe` and `.dll` binaries for malicious patterns without executing them.
 
